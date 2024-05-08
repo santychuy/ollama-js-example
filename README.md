@@ -1,12 +1,19 @@
 # Trying Ollama JS Library
 
-With the purpose of interact with Ollama and using Llama 3 Model to use it on a Node App. Very easy to use with this basic example.
+With the purpose of interact with Ollama using Llama 3 Model to use it on a Node Express app. Very easy to use with this basic example.
 
-## Requirements
+## Test it
 
-- Have running Ollama on your local machine, can be downloaded on a binary or Docker.
+1. Run the services inside the `docker-compose.yml` file
 
-  - [Website](https://ollama.com/)
-  - [Docker Image](https://hub.docker.com/r/ollama/ollama)
+```sh
+docker compose up -d
+```
 
-- Pull a model, in this case Llama 3
+2. We're gonna pull the Llama3 model inside the **ollama container**
+
+```sh
+docker exec -it ollama-example ollama pull llama3
+```
+
+3. After pulling the model correctly, you can start using the `http://127.0.0.1:3000/chat` `POST` endpoint locally
