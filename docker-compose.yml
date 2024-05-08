@@ -1,0 +1,22 @@
+services:
+  node:
+    container_name: node-ollama-example
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    depends_on:
+      - ollama
+  ollama:
+    container_name: ollama-example
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    tty: true
+    restart: always
+
+volumes:
+  ollama_data:
